@@ -1,0 +1,119 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const values = [
+  {
+    title: 'Honest pricing',
+    body: "No hourly billing. No surprise invoices. You see the price up front, you pay the price up front, that's the price.",
+  },
+  {
+    title: 'Real ownership',
+    body: "Your domain, your content, your code. If we ever stop being a fit, we hand everything over and wish you well.",
+  },
+  {
+    title: 'Local first',
+    body: "We're in Hamilton, our clients are in Hamilton. We meet for coffee. We answer the phone. We show up.",
+  },
+  {
+    title: 'Built to last',
+    body: "Every site we build still loads in under a second three years from now. Not a template. Not a hack job. Real work.",
+  },
+];
+---
+
+<BaseLayout
+  title="About — Northpoint Digital"
+  description="A small web studio in Hamilton, Ontario, building real websites for real local businesses."
+>
+  <!-- Header -->
+  <section class="max-w-3xl mx-auto px-6 pt-20 pb-16">
+    <div class="text-xs uppercase tracking-widest text-accent mb-4">About</div>
+    <h1 class="font-display text-5xl md:text-6xl leading-tight tracking-tight mb-8">
+      A web studio for the businesses that <span class="gold-text italic">actually run Hamilton.</span>
+    </h1>
+    <div class="text-lg text-foreground-muted leading-relaxed space-y-5">
+      <p>
+        Northpoint Digital was started for one reason: small businesses in Hamilton deserve
+        better websites than what big agencies and template builders offer them.
+      </p>
+      <p>
+        Big agencies cost $20k+ and treat local businesses like an afterthought. Template
+        builders give you a site that looks like every other site online and breaks the
+        moment you try to change anything.
+      </p>
+      <p>
+        We sit in the middle: real custom websites, built by hand, priced for businesses
+        with normal budgets. One flat monthly fee covers hosting, updates, and the small
+        thousand things that go wrong on a website over time.
+      </p>
+      <p>
+        We pick up the phone. We meet for coffee. We give honest answers — even when the
+        honest answer is "you don't need that, save your money."
+      </p>
+    </div>
+  </section>
+
+  <!-- Values -->
+  <section class="max-w-6xl mx-auto px-6 py-20">
+    <div class="mb-12 max-w-2xl">
+      <div class="text-xs uppercase tracking-widest text-accent mb-4">What we believe</div>
+      <h2 class="font-display text-3xl md:text-4xl tracking-tight">
+        Four things we won't budge on.
+      </h2>
+    </div>
+    <div class="grid md:grid-cols-2 gap-5">
+      {values.map((v, i) => (
+        <div class="card p-7">
+          <div class="flex items-baseline gap-3 mb-3">
+            <span class="font-display text-2xl gold-text">0{i + 1}</span>
+            <h3 class="font-display text-xl">{v.title}</h3>
+          </div>
+          <p class="text-foreground-muted text-sm leading-relaxed">{v.body}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Why Hamilton -->
+  <section class="max-w-3xl mx-auto px-6 py-16">
+    <div class="card p-10 md:p-12">
+      <div class="text-xs uppercase tracking-widest text-accent mb-4">Why Hamilton</div>
+      <h2 class="font-display text-3xl tracking-tight mb-5">
+        We're not a Toronto agency in disguise.
+      </h2>
+      <div class="text-foreground-muted leading-relaxed space-y-4">
+        <p>
+          Hamilton has thousands of small businesses doing real, important work — restaurants on
+          Locke Street, contractors in Stoney Creek, dentists in Ancaster, salons in Burlington.
+          Most of them are getting outhustled online by chains and out-of-town competitors with
+          bigger marketing budgets.
+        </p>
+        <p>
+          That's a fixable problem. A great website levels the playing field. That's what we do,
+          and that's all we do.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="max-w-6xl mx-auto px-6 py-20">
+    <div class="card p-10 md:p-14 text-center bg-gradient-to-br from-ink-elevated to-ink-card">
+      <h2 class="font-display text-3xl md:text-4xl tracking-tight mb-4">
+        Sound like the kind of partner you want?
+      </h2>
+      <p class="text-foreground-muted mb-7 max-w-lg mx-auto">
+        Book a free 20-minute call. No sales pitch — just a conversation.
+      </p>
+      <a
+        href="/contact"
+        class="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-md bg-accent text-ink font-medium hover:bg-accent-hover transition-colors"
+      >
+        Get in touch
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14M13 5l7 7-7 7"/>
+        </svg>
+      </a>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,55 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="border-t border-line mt-32">
+  <div class="max-w-6xl mx-auto px-6 py-12">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
+      <div class="md:col-span-2">
+        <div class="flex items-center gap-2.5 mb-4">
+          <div class="w-8 h-8 rounded-md bg-ink-elevated border border-line-strong flex items-center justify-center">
+            <svg viewBox="0 0 24 24" class="w-5 h-5 text-accent" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 19V5l14 14V5"/>
+            </svg>
+          </div>
+          <span class="font-display text-lg tracking-tight">
+            Northpoint <span class="text-foreground-muted">Digital</span>
+          </span>
+        </div>
+        <p class="text-foreground-muted text-sm max-w-md leading-relaxed">
+          A web studio building fast, modern websites for small businesses across Hamilton, Burlington, and the surrounding area.
+        </p>
+      </div>
+
+      <div>
+        <h4 class="text-sm font-semibold mb-3 text-foreground">Studio</h4>
+        <ul class="space-y-2 text-sm text-foreground-muted">
+          <li><a href="/services" class="hover:text-foreground transition-colors">Services</a></li>
+          <li><a href="/work" class="hover:text-foreground transition-colors">Work</a></li>
+          <li><a href="/about" class="hover:text-foreground transition-colors">About</a></li>
+          <li><a href="/contact" class="hover:text-foreground transition-colors">Contact</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="text-sm font-semibold mb-3 text-foreground">Get in touch</h4>
+        <ul class="space-y-2 text-sm text-foreground-muted">
+          <li>
+            <a href="mailto:hello@northpointdigital.ca" class="hover:text-foreground transition-colors">
+              hello@northpointdigital.ca
+            </a>
+          </li>
+          <li>Hamilton, Ontario</li>
+          <li>Mon–Fri, 9–6 ET</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="hairline mb-6"></div>
+
+    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 text-xs text-foreground-subtle">
+      <p>&copy; {year} Northpoint Digital. All rights reserved.</p>
+      <p>Built in Hamilton, Ontario.</p>
+    </div>
+  </div>
+</footer>

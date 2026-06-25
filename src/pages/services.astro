@@ -1,0 +1,237 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const tiers = [
+  {
+    name: 'Starter',
+    setup: 300,
+    monthly: 79,
+    tagline: 'For small businesses getting online for the first time.',
+    features: [
+      '3-page custom website (Home, About, Contact)',
+      'Mobile-responsive design',
+      'Hosting on a fast global network',
+      'Free SSL certificate (the lock icon)',
+      'Domain setup & email forwarding',
+      '1 small update per month',
+      'Email support, replies within 1 business day',
+    ],
+    featured: false,
+  },
+  {
+    name: 'Standard',
+    setup: 600,
+    monthly: 149,
+    tagline: 'Most popular. For growing businesses ready to compete online.',
+    features: [
+      '5–7 page custom website',
+      'Contact form with email notifications',
+      'Embedded Google Maps + business hours',
+      'Photo gallery or menu section',
+      'Hosting + SSL + daily automatic backups',
+      'Basic on-page SEO setup',
+      'Google Business Profile optimization',
+      '3 update requests per month',
+      'Priority email support, same-day replies',
+    ],
+    featured: true,
+  },
+  {
+    name: 'Premium',
+    setup: 1200,
+    monthly: 249,
+    tagline: 'For established businesses that want a real competitive edge.',
+    features: [
+      '10+ page custom website',
+      'Blog or news section with easy-to-edit posts',
+      'Advanced SEO setup with keyword research',
+      'Google Business + Bing + Apple Maps listings',
+      'Booking integration (Calendly, OpenTable, etc.)',
+      'Hosting + SSL + daily backups + uptime monitoring',
+      'Unlimited small updates (under 30 min each)',
+      'Quarterly performance & SEO report',
+      'Phone + email support',
+    ],
+    featured: false,
+  },
+];
+
+const addOns = [
+  { name: 'Logo design', price: 'from $300' },
+  { name: 'Professional copywriting', price: 'from $400' },
+  { name: 'Photography (half-day, on-site)', price: 'from $500' },
+  { name: 'Online ordering / e-commerce', price: 'from $800' },
+  { name: 'Bilingual site (English + French)', price: 'from $400' },
+  { name: 'Custom email setup (you@yourbusiness.ca)', price: '$10/mo' },
+];
+
+const faqs = [
+  {
+    q: 'Do I own my website?',
+    a: "Yes. The domain, content, and code are all yours. If you ever leave us, we'll hand everything over with no fees and no headaches.",
+  },
+  {
+    q: 'How long does it take?',
+    a: "Most Starter sites go live in 5–7 days. Standard sites take 10–14 days. Premium sites take 2–4 weeks depending on scope.",
+  },
+  {
+    q: "What's a 'small update'?",
+    a: "Anything that takes us under 30 minutes — changing photos, updating hours, adding a menu item, swapping testimonials, fixing typos. Bigger changes are quoted separately.",
+  },
+  {
+    q: 'Are there long-term contracts?',
+    a: 'No. The setup fee is one-time, and the monthly fee is month-to-month. Cancel anytime with 30 days notice.',
+  },
+  {
+    q: 'What happens if I cancel?',
+    a: "You keep your domain and your content. We'll export everything for you. You can move to another host or hire someone else — no drama.",
+  },
+  {
+    q: 'Do you do e-commerce or online ordering?',
+    a: "Yes — usually as an add-on. Restaurants and shops can take orders directly through the site. We'll quote based on what you need.",
+  },
+];
+---
+
+<BaseLayout
+  title="Services & Pricing — Northpoint Digital"
+  description="Three simple plans for Hamilton-area businesses. One setup fee, one flat monthly fee. No long-term contracts."
+>
+  <!-- Header -->
+  <section class="max-w-6xl mx-auto px-6 pt-20 pb-12">
+    <div class="max-w-2xl">
+      <div class="text-xs uppercase tracking-widest text-accent mb-4">Services</div>
+      <h1 class="font-display text-5xl md:text-6xl leading-tight tracking-tight mb-6">
+        Three plans. <span class="gold-text italic">No surprises.</span>
+      </h1>
+      <p class="text-lg text-foreground-muted leading-relaxed">
+        Every Northpoint plan includes design, build, hosting, and ongoing care.
+        Pick the size that fits, scale up whenever you need to.
+      </p>
+    </div>
+  </section>
+
+  <!-- Pricing tiers -->
+  <section class="max-w-6xl mx-auto px-6 pb-20">
+    <div class="grid md:grid-cols-3 gap-5">
+      {tiers.map((tier) => (
+        <div
+          class:list={[
+            'card p-8 relative flex flex-col',
+            tier.featured && 'border-accent/40 bg-gradient-to-b from-accent-soft to-transparent',
+          ]}
+        >
+          {tier.featured && (
+            <div class="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-accent text-ink text-xs font-semibold">
+              Most popular
+            </div>
+          )}
+          <h3 class="font-display text-2xl mb-1">{tier.name}</h3>
+          <p class="text-sm text-foreground-muted mb-6 min-h-[2.5rem]">{tier.tagline}</p>
+
+          <div class="mb-6">
+            <div class="flex items-baseline gap-1">
+              <span class="font-display text-4xl">${tier.monthly}</span>
+              <span class="text-foreground-muted">/mo</span>
+            </div>
+            <p class="text-xs text-foreground-subtle mt-1">+ ${tier.setup} one-time setup</p>
+          </div>
+
+          <ul class="space-y-3 mb-8 flex-1">
+            {tier.features.map((f) => (
+              <li class="flex gap-2.5 text-sm">
+                <svg class="w-4 h-4 text-accent flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 6L9 17l-5-5"/>
+                </svg>
+                <span class="text-foreground-muted">{f}</span>
+              </li>
+            ))}
+          </ul>
+
+          <a
+            href="/contact"
+            class:list={[
+              'block w-full text-center py-2.5 rounded-md text-sm font-medium transition-colors',
+              tier.featured
+                ? 'bg-accent text-ink hover:bg-accent-hover'
+                : 'border border-line-strong text-foreground hover:bg-ink-elevated',
+            ]}
+          >
+            Get started
+          </a>
+        </div>
+      ))}
+    </div>
+
+    <p class="text-center text-foreground-subtle text-sm mt-10">
+      All prices in CAD. HST added at checkout where applicable.
+    </p>
+  </section>
+
+  <!-- Add-ons -->
+  <section class="max-w-6xl mx-auto px-6 py-16">
+    <div class="mb-10 max-w-2xl">
+      <div class="text-xs uppercase tracking-widest text-accent mb-4">Add-ons</div>
+      <h2 class="font-display text-3xl md:text-4xl tracking-tight mb-4">
+        Need a little extra?
+      </h2>
+      <p class="text-foreground-muted">
+        Mix and match with any plan. We'll quote up front so there are never surprise bills.
+      </p>
+    </div>
+    <div class="grid sm:grid-cols-2 gap-3">
+      {addOns.map((item) => (
+        <div class="card p-5 flex justify-between items-center">
+          <span class="font-medium">{item.name}</span>
+          <span class="text-foreground-muted text-sm">{item.price}</span>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="max-w-3xl mx-auto px-6 py-20">
+    <div class="mb-10 text-center">
+      <div class="text-xs uppercase tracking-widest text-accent mb-4">FAQ</div>
+      <h2 class="font-display text-3xl md:text-4xl tracking-tight">
+        Common questions.
+      </h2>
+    </div>
+    <div class="space-y-3">
+      {faqs.map((faq) => (
+        <details class="card p-5 group">
+          <summary class="flex justify-between items-center cursor-pointer list-none font-medium">
+            <span>{faq.q}</span>
+            <svg class="w-4 h-4 text-foreground-muted transition-transform group-open:rotate-45" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 5v14M5 12h14"/>
+            </svg>
+          </summary>
+          <p class="text-foreground-muted text-sm mt-3 leading-relaxed">
+            {faq.a}
+          </p>
+        </details>
+      ))}
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="max-w-6xl mx-auto px-6 py-20">
+    <div class="card p-10 md:p-14 text-center bg-gradient-to-br from-ink-elevated to-ink-card">
+      <h2 class="font-display text-3xl md:text-4xl tracking-tight mb-4">
+        Not sure which plan fits?
+      </h2>
+      <p class="text-foreground-muted mb-7 max-w-lg mx-auto">
+        Book a free 20-minute call. We'll talk through what your business needs and recommend the right plan — no pressure to buy.
+      </p>
+      <a
+        href="/contact"
+        class="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-md bg-accent text-ink font-medium hover:bg-accent-hover transition-colors"
+      >
+        Book a free call
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14M13 5l7 7-7 7"/>
+        </svg>
+      </a>
+    </div>
+  </section>
+</BaseLayout>

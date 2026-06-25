@@ -1,0 +1,98 @@
+@import "tailwindcss";
+
+@theme {
+  /* Premium dark palette */
+  --color-ink: #0a0f1c;
+  --color-ink-elevated: #131a2b;
+  --color-ink-card: #0f1525;
+  --color-line: #1e2942;
+  --color-line-strong: #2a3654;
+
+  --color-foreground: #f1f5f9;
+  --color-foreground-muted: #94a3b8;
+  --color-foreground-subtle: #64748b;
+
+  --color-accent: #c9a961;
+  --color-accent-hover: #d4b876;
+  --color-accent-soft: rgba(201, 169, 97, 0.12);
+
+  /* Typography */
+  --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-display: 'Fraunces', ui-serif, Georgia, serif;
+}
+
+/* Base styles */
+html {
+  background-color: var(--color-ink);
+  color: var(--color-foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background-color: var(--color-ink);
+  color: var(--color-foreground);
+  font-feature-settings: "ss01", "cv11";
+}
+
+/* Subtle ambient glow */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% -10%, rgba(201, 169, 97, 0.08), transparent 60%),
+    radial-gradient(ellipse 60% 40% at 100% 100%, rgba(70, 110, 180, 0.05), transparent 60%);
+  z-index: -1;
+}
+
+/* Selection */
+::selection {
+  background-color: var(--color-accent);
+  color: var(--color-ink);
+}
+
+/* Utility: gold gradient text */
+.gold-text {
+  background: linear-gradient(135deg, #d4b876 0%, #c9a961 50%, #a88547 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Utility: subtle card */
+.card {
+  background-color: var(--color-ink-card);
+  border: 1px solid var(--color-line);
+  border-radius: 1rem;
+  transition: border-color 200ms, transform 200ms;
+}
+
+.card:hover {
+  border-color: var(--color-line-strong);
+}
+
+/* Hairline divider */
+.hairline {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-line-strong), transparent);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-ink);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-line-strong);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-foreground-subtle);
+}

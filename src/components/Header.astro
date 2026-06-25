@@ -1,0 +1,86 @@
+---
+const { pathname } = Astro.url;
+const isActive = (path: string) =>
+  pathname === path || (path !== '/' && pathname.startsWith(path));
+
+const navItems = [
+  { href: '/', label: 'Home' },
+  { href: '/services', label: 'Services' },
+  { href: '/work', label: 'Work' },
+  { href: '/about', label: 'About' },
+  { href: '/contact', label: 'Contact' },
+];
+---
+
+<header class="sticky top-0 z-50 backdrop-blur-md bg-ink/80 border-b border-line">
+  <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+    <a href="/" class="flex items-center gap-2.5 group">
+      <div class="w-8 h-8 rounded-md bg-ink-elevated border border-line-strong flex items-center justify-center group-hover:border-accent transition-colors">
+        <svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 19V5l14 14V5" class="text-accent" stroke="currentColor"/>
+        </svg>
+      </div>
+      <span class="font-display text-lg tracking-tight">
+        Northpoint <span class="text-foreground-muted">Digital</span>
+      </span>
+    </a>
+
+    <nav class="hidden md:flex items-center gap-1">
+      {navItems.slice(1, -1).map((item) => (
+        <a
+          href={item.href}
+          class:list={[
+            'px-3 py-2 text-sm rounded-md transition-colors',
+            isActive(item.href)
+              ? 'text-foreground'
+              : 'text-foreground-muted hover:text-foreground',
+          ]}
+        >
+          {item.label}
+        </a>
+      ))}
+    </nav>
+
+    <a
+      href="/contact"
+      class="hidden sm:inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-md bg-accent text-ink hover:bg-accent-hover transition-colors"
+    >
+      Book a call
+      <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M5 12h14M13 5l7 7-7 7"/>
+      </svg>
+    </a>
+
+    <button
+      id="mobile-menu-btn"
+      class="md:hidden p-2 text-foreground-muted hover:text-foreground"
+      aria-label="Toggle menu"
+    >
+      <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <path d="M3 6h18M3 12h18M3 18h18"/>
+      </svg>
+    </button>
+  </div>
+
+  <div id="mobile-menu" class="hidden md:hidden border-t border-line">
+    <nav class="px-6 py-3 flex flex-col">
+      {navItems.map((item) => (
+        <a
+          href={item.href}
+          class:list={[
+            'py-2.5 text-sm transition-colors',
+            isActive(item.href) ? 'text-accent' : 'text-foreground-muted hover:text-foreground',
+          ]}
+        >
+          {item.label}
+        </a>
+      ))}
+    </nav>
+  </div>
+</header>
+
+<script>
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  btn?.addEventListener('click', () => menu?.classList.toggle('hidden'));
+</script>
