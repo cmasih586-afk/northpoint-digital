@@ -106,9 +106,8 @@ const process = [
       </h1>
 
       <p class="text-lg md:text-xl text-foreground-muted leading-relaxed max-w-2xl mb-10">
-        We design, build, and maintain fast, modern websites for restaurants, contractors,
-        salons, and shops across Hamilton and the surrounding area. One flat monthly fee,
-        no surprises.
+        We design, build, and maintain fast, modern websites for small businesses across
+        Hamilton, Ontario — and remotely across Canada. One flat monthly fee, no surprises.
       </p>
 
       <div class="flex flex-col sm:flex-row gap-3">
@@ -293,6 +292,59 @@ const process = [
           <p class="text-sm text-foreground-muted leading-relaxed">{step.body}</p>
         </div>
       ))}
+    </div>
+  </section>
+
+  <!-- Hamilton Local Launch -->
+  <section class="max-w-6xl mx-auto px-6 py-20">
+    <div class="card p-10 md:p-14 relative overflow-hidden">
+      <!-- ambient accent -->
+      <div class="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-accent/10 blur-3xl pointer-events-none"></div>
+
+      <div class="relative grid md:grid-cols-2 gap-10 items-center">
+        <div>
+          <div class="inline-flex items-center gap-2 px-3 py-1 mb-5 rounded-full border border-accent/40 bg-accent-soft text-xs text-accent">
+            <span class="w-1.5 h-1.5 rounded-full bg-accent animate-pulse"></span>
+            Limited launch offer
+          </div>
+          <h2 class="font-display text-3xl md:text-4xl tracking-tight mb-4 leading-tight">
+            Hamilton Local Launch — <span class="gold-text italic">3 spots.</span>
+          </h2>
+          <p class="text-foreground-muted leading-relaxed mb-3">
+            We're opening Northpoint with a limited launch offer for Greater Hamilton businesses.
+            Be one of the first 3 launch partners.
+          </p>
+          <p class="text-foreground-subtle text-sm">
+            6-month commitment at the standard monthly rate. Standard update limits apply.
+          </p>
+        </div>
+
+        <div>
+          <ul class="space-y-3 mb-7">
+            <li class="flex gap-3 items-start">
+              <div class="flex-shrink-0 w-6 h-6 rounded-md bg-accent-soft flex items-center justify-center text-accent text-xs font-bold mt-0.5">✓</div>
+              <span><span class="font-medium">25% off setup</span> on any plan</span>
+            </li>
+            <li class="flex gap-3 items-start">
+              <div class="flex-shrink-0 w-6 h-6 rounded-md bg-accent-soft flex items-center justify-center text-accent text-xs font-bold mt-0.5">✓</div>
+              <span><span class="font-medium">First month free</span> after launch</span>
+            </li>
+            <li class="flex gap-3 items-start">
+              <div class="flex-shrink-0 w-6 h-6 rounded-md bg-accent-soft flex items-center justify-center text-accent text-xs font-bold mt-0.5">✓</div>
+              <span><span class="font-medium">Featured</span> as a launch partner on our site</span>
+            </li>
+          </ul>
+          <a
+            href="/contact"
+            class="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-md bg-accent text-ink font-medium hover:bg-accent-hover transition-colors"
+          >
+            Claim a launch spot
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M13 5l7 7-7 7"/>
+            </svg>
+          </a>
+        </div>
+      </div>
     </div>
   </section>
 
