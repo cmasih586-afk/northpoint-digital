@@ -2,7 +2,13 @@
 
 > **Read this first.** If you're an AI agent picking up this project, this file is your full briefing — read it before doing anything else. If you're the owner, this is your reference for what was decided, what's done, and what's next.
 
-Last updated: 2026-06-25
+Last updated: 2026-06-26
+
+---
+
+## Who runs this
+
+**Chan** — founder, designer, developer, account manager, support, sales, everything. Solo operator based in Hamilton, Ontario.
 
 ---
 
@@ -103,11 +109,21 @@ For the first **3 paying clients**:
 ✅ Site designed, built, deployed (5 pages: Home, Services, Work, About, Contact)
 ✅ Premium dark theme with gold accent
 ✅ PR #1 merged (Launch offer, industry-standard ownership FAQ, removed e-commerce, swapped photography for stock curation, broadened service area to Canada-wide)
+✅ PR #2 merged (project-context file + README)
 ✅ Domain `northpointdigital.work` purchased on Cloudflare
-🟡 DNS records being configured in Cloudflare (status: in progress at last touch)
-⏳ Business email (Google Workspace for hello@northpointdigital.work) — not started
+✅ DNS records configured (A + CNAME, both DNS-only); site LIVE at https://northpointdigital.work
+✅ Owner identified on site: **Chan** (Hamilton, Ontario)
+✅ Phone card removed from contact page (intentionally — using email + booking only)
+🟡 Email: pending Cloudflare Email Routing setup for `hello@northpointdigital.work` (free, forwards to Gmail)
 ⏳ Cal.com booking link — not started
 ⏳ First outreach campaign to Hamilton businesses — not started
+
+## Contact
+
+- **Public email (configured on site):** hello@northpointdigital.work
+- **Mechanism:** Cloudflare Email Routing → forwards to owner's personal Gmail (free)
+- **Phone:** intentionally not on site (use cell privately if needed)
+- **Booking:** placeholder on contact page; replace with Cal.com embed when ready
 
 ---
 
